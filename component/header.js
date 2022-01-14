@@ -24,14 +24,14 @@ export default function Header() {
           }}
         >
           <div className={styles.headlogo}>
-            <Link href="/">
+            <a href="https://deadlarvaz.com">
               <Image
                 src="/logo.svg"
                 alt="Vercel Logo"
                 width={130}
                 height={130}
               />
-            </Link>
+            </a>
           </div>
           <ul
             className={
@@ -48,50 +48,11 @@ export default function Header() {
                     : styles.navlink + ' ' + styles.active
                 }
                 onClick={openMenu}
-                href="#home"
-              >
-                Home
+                href="https://deadlarvaz.com" >
+               Back
               </a>
             </li>
-            <li className={styles.navitem}>
-              <a
-                className={
-                  isOpen === false
-                    ? styles.navlink
-                    : styles.navlink + ' ' + styles.active
-                }
-                onClick={openMenu}
-                href="#about"
-              >
-                About
-              </a>
-            </li>
-            <li className={styles.navitem}>
-              <a
-                className={
-                  isOpen === false
-                    ? styles.navlink
-                    : styles.navlink + ' ' + styles.active
-                }
-                onClick={openMenu}
-                href="#roadmap"
-              >
-                Roadmap
-              </a>
-            </li>
-            <li className={styles.navitem}>
-              <a
-                className={
-                  isOpen === false
-                    ? styles.navlink
-                    : styles.navlink + ' ' + styles.active
-                }
-                onClick={openMenu}
-                href="#team"
-              >
-                Team
-              </a>
-            </li>
+          
           </ul>
 
           <div className={styles.iconic}>
