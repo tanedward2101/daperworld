@@ -19,7 +19,7 @@ export default function Home() {
   useEagerConnect()
 
   const { account, library, chainId } = useWeb3React()
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(1)
   const [amount, setAmount] = useState(0)
   const web3 = getWeb3(library)
   const spring = {
@@ -28,25 +28,29 @@ export default function Home() {
     stiffness: 100,
   }
   const Completionist = () => (
-    <div>
+    <div> <center>
       <span className={styles.titleone}>
         Mint
-        <input
-          className="number"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          className="numberimg"
-        ></input>{' '}
+        <br />
+        <div className={styles.grid}>
+          <div className={styles.tcard}>
+            <Button
+              className={styles.valbutton}>-</Button>
+          </div>
+          <div className={styles.tcard}>{value}</div>
+          <div className={styles.tcard}>  <Button
+            className={styles.valbutton}>+</Button></div>
+
+        </div>
 
       </span>
-      <br />
-      <br />
+
       <Button
         className={styles2.cntButton}
       >
         Mint
-      </Button>
-    </div>
+      </Button></center>
+    </div >
   )
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -157,7 +161,7 @@ export default function Home() {
         </div>
 
 
-     
+
       </main>
     </div>
   )
