@@ -242,9 +242,9 @@ export default function Home() {
         <div className={styles.grid}>
           <br />
           <br />
-          <Countdown date={new Date(1642265100000)} renderer={renderer}>
+          {/* <Countdown date={new Date(1642265100000)} renderer={renderer}>
             <Completionist />
-          </Countdown>
+          </Countdown> */}
         </div>
       </main>
     </div>
