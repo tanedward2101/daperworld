@@ -31,7 +31,7 @@ export default function Home() {
   async function fetchMyAPI() {
     const contract = new web3.eth.Contract(
       CC_ABI,
-      '0xdC7b20E1097165969F7DC7712501F6C5B9472e09',
+      '0xA7f5BEd28c596afEc2980C29874963A974461Cf1',
     )
     const amount = await contract.methods.totalSupply().call()
     setMinted(amount)
@@ -44,7 +44,7 @@ export default function Home() {
     var gasPriceResult = await gasstationInfo('average')
     const contracts = new web3.eth.Contract(
       CC_ABI,
-      '0xdC7b20E1097165969F7DC7712501F6C5B9472e09',
+      '0xA7f5BEd28c596afEc2980C29874963A974461Cf1',
     )
     fetchMyAPI()
     var estGas = 0
@@ -242,7 +242,7 @@ export default function Home() {
         <div className={styles.grid}>
           <br />
           <br />
-          <Countdown date={new Date(1642157700000)} renderer={renderer}>
+          <Countdown date={new Date(1610729100000)} renderer={renderer}>
             <Completionist />
           </Countdown>
         </div>
