@@ -1613,7 +1613,7 @@ axe-core@^4.3.5:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.3.5.tgz#78d6911ba317a8262bfee292aeafcc1e04b49cc5"
   integrity sha512-WKTW1+xAzhMS5dJsxWkliixlO/PqC4VhmO9T4juNYcaTg9jzWiJsou6m5pxWYGfigWbwzJWeFY6z47a+4neRXA==
 
-axios@^0.21.0:
+axios@^0.21.0, axios@^0.21.1:
   version "0.21.4"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
@@ -2996,6 +2996,13 @@ eth-ens-namehash@2.0.8:
   dependencies:
     idna-uts46-hx "^2.3.1"
     js-sha3 "^0.5.7"
+
+eth-gasprice-estimator@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eth-gasprice-estimator/-/eth-gasprice-estimator-1.0.0.tgz#09b5c9422963cacb16ede2f1689f11fc922ba5b1"
+  integrity sha512-dFW2FngGxqC9gMnGP3G/KQLPXGqqPy4xBHnvElQSIolVHF66gDt+xc3I/iqCZ3a56OWZ8toVvCXRRdrjmKqK7g==
+  dependencies:
+    axios "^0.21.1"
 
 eth-json-rpc-filters@4.2.2, eth-json-rpc-filters@^4.2.1:
   version "4.2.2"

@@ -6,6 +6,13 @@
 .bamat{
   font-family: 'Bamat';
 }
+.free{
+  background-color: #10b981;
+  border-radius:10px;
+  width:6rem;
+  padding:0.3rem;
+  font-family: 'Bamat';
+}
 .main {
   min-height: 100vh;
   flex: 1;

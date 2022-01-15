@@ -26,9 +26,14 @@ export const ConnectorNames = {
 const injected = new InjectedConnector({ supportedChainIds: [1, 4] });
 const walletconnect = new WalletConnectConnector({
   infuraId: process.env.REACT_APP_INFURA_ID,
-  rpc: `https://${process.env.CHAINID === 4 ? 'rinkeby': 'mainnet'}.infura.io/v3/${process.env.REACT_APP_INFURA_ID}`,
+  rpc: `https://${process.env.CHAINID === 4 ? 'rinkeby': 'mainnet'}.infura.io/v3/10475d80c3ba4b3d8f768b09dd3faafc`,
   supportedChainIds: [1, 4],
 });
+// const walletconnect = new WalletConnectConnector({
+//   infuraId: process.env.REACT_APP_INFURA_ID,
+//   rpc: `https://rinkeby.infura.io/v3/${process.env.REACT_APP_INFURA_ID}`,
+//   supportedChainIds: [1, 4],
+// });
 
 export const connectorsByName = {
   [ConnectorNames.MetaMask]: injected
