@@ -87,166 +87,176 @@ export default function Home() {
   }
   const handleClickP = () => {
     var a = amount + 1
-    setAmount(a)
-  }
-  const handleClickM = () => {
-    var a = amount - 1
-    if (a > 0) {
-      setAmount(a)
+    if (minted < 666) {
+
+      if (a <= 2) {
+        setAmount(a)
+      }
+    }
+    else
+    {
+      if (a <= 15) {
+        setAmount(a)
+      }
     }
   }
 
-  const Completionist = () => (
-    <div>
-      {' '}
-      <center>
-        {minted < 666 ? (
-          <div className={styles.free}>Free Mint</div>
-        ) : (
-          <div className={styles.free}>0.03 ETH each</div>
-        )}
-        <span className={styles.titleone}>
-          <br />
-          {minted}/6666 minted
-          <br />
-          <div className={styles.grid}>
-            <div className={styles.tcard}>
-              {minted < 666 ? (
-                <div></div>
-              ) : (
+    const handleClickM = () => {
+      var a = amount - 1
+
+      if (a > 0) {
+        setAmount(a)
+      }
+
+    }
+
+    const Completionist = () => (
+      <div>
+        {' '}
+        <center>
+          {minted < 666 ? (
+            <div className={styles.free}>Free Mint</div>
+          ) : (
+            <div className={styles.free}>0.03 ETH each</div>
+          )}
+          <span className={styles.titleone}>
+            <br />
+            {minted}/6666 minted
+            <br />
+            <div className={styles.grid}>
+              <div className={styles.tcard}>
+
                 <Button className={styles.valbutton} onClick={handleClickM}>
                   -
                 </Button>
-              )}
-            </div>
-            <div className={styles.tcard}>{amount}</div>
-            <div className={styles.tcard}>
-              {minted < 666 ? (
-                <div></div>
-              ) : (
+
+              </div>
+              <div className={styles.tcard}>{amount}</div>
+              <div className={styles.tcard}>
+
                 <Button className={styles.valbutton} onClick={handleClickP}>
                   +
                 </Button>
-              )}
+
+              </div>
             </div>
-          </div>
-        </span>
+          </span>
 
-        <Button className={styles2.cntButton} onClick={mint}>
-          Mint
-        </Button>
-      </center>
-    </div>
-  )
-  const renderer = ({ days, hours, minutes, seconds, completed }) => {
-    if (completed) {
-      // Render a completed state
-      return <Completionist />
-    } else {
-      // Render a countdown
-      const min = minutes < 10 ? '0' + minutes : minutes
-      const hou = hours < 10 ? '0' + hours : hours
-      const day = days < 10 ? '0' + days : days
-      const sec = seconds < 10 ? '0' + seconds : seconds
-      return (
-        <span className={styles.countdown}>
-          MINTING COUNTDOWN
-          <br />
-          <center>
-            {' '}
-            {day}:{hou}:{min}:{sec}
-          </center>
-        </span>
-      )
+          <Button className={styles2.cntButton} onClick={mint}>
+            Mint
+          </Button>
+        </center>
+      </div>
+    )
+    const renderer = ({ days, hours, minutes, seconds, completed }) => {
+      if (completed) {
+        // Render a completed state
+        return <Completionist />
+      } else {
+        // Render a countdown
+        const min = minutes < 10 ? '0' + minutes : minutes
+        const hou = hours < 10 ? '0' + hours : hours
+        const day = days < 10 ? '0' + days : days
+        const sec = seconds < 10 ? '0' + seconds : seconds
+        return (
+          <span className={styles.countdown}>
+            MINTING COUNTDOWN
+            <br />
+            <center>
+              {' '}
+              {day}:{hou}:{min}:{sec}
+            </center>
+          </span>
+        )
+      }
     }
-  }
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Dead Larvaz</title>
-        <meta name="description" content="Gentle " />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+      <div className={styles.container}>
+        <Head>
+          <title>Dead Larvaz</title>
+          <meta name="description" content="Gentle " />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className={styles.main}>
-        <WalletModal></WalletModal>
-        <ReactNotification />
-        <div className={styles.gridl} id="home">
-          <motion.div
-            initial={{ opacity: 0, y: '10vw' }}
-            animate={{ opacity: 1, y: '1vw' }}
-            transition={{
-              type: 'tween',
-              duration: 1.5,
-            }}
-            className={styles.card2}
-          >
-            <Image
-              src="/sample/2.png"
-              alt="Vercel Logo"
-              width={175}
-              height={175}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: '10vw' }}
-            animate={{ opacity: 1, y: '1vw' }}
-            transition={{
-              type: 'tween',
-              duration: 1.5,
-            }}
-            className={styles.card2}
-          >
-            <Image
-              src="/sample/3.png"
-              alt="Vercel Logo"
-              width={175}
-              height={175}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: '10vw' }}
-            animate={{ opacity: 1, y: '1vw' }}
-            transition={{
-              type: 'tween',
-              duration: 1.5,
-            }}
-            className={styles.card2}
-          >
-            <Image
-              src="/sample/1.png"
-              alt="Vercel Logo"
-              width={175}
-              height={175}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: '10vw' }}
-            animate={{ opacity: 1, y: '1vw' }}
-            transition={{
-              type: 'tween',
-              duration: 1.5,
-            }}
-            className={styles.card2}
-          >
-            <Image
-              src="/sample/4.png"
-              alt="Vercel Logo"
-              width={175}
-              height={175}
-            />
-          </motion.div>
-        </div>
+        <main className={styles.main}>
+          <WalletModal></WalletModal>
+          <ReactNotification />
+          <div className={styles.gridl} id="home">
+            <motion.div
+              initial={{ opacity: 0, y: '10vw' }}
+              animate={{ opacity: 1, y: '1vw' }}
+              transition={{
+                type: 'tween',
+                duration: 1.5,
+              }}
+              className={styles.card2}
+            >
+              <Image
+                src="/sample/2.png"
+                alt="Vercel Logo"
+                width={175}
+                height={175}
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: '10vw' }}
+              animate={{ opacity: 1, y: '1vw' }}
+              transition={{
+                type: 'tween',
+                duration: 1.5,
+              }}
+              className={styles.card2}
+            >
+              <Image
+                src="/sample/3.png"
+                alt="Vercel Logo"
+                width={175}
+                height={175}
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: '10vw' }}
+              animate={{ opacity: 1, y: '1vw' }}
+              transition={{
+                type: 'tween',
+                duration: 1.5,
+              }}
+              className={styles.card2}
+            >
+              <Image
+                src="/sample/1.png"
+                alt="Vercel Logo"
+                width={175}
+                height={175}
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: '10vw' }}
+              animate={{ opacity: 1, y: '1vw' }}
+              transition={{
+                type: 'tween',
+                duration: 1.5,
+              }}
+              className={styles.card2}
+            >
+              <Image
+                src="/sample/4.png"
+                alt="Vercel Logo"
+                width={175}
+                height={175}
+              />
+            </motion.div>
+          </div>
 
-        <div className={styles.grid}>
-          <br />
-          <br />
-          {/* <Countdown date={new Date(1642265100000)} renderer={renderer}>
+          <div className={styles.grid}>
+            <br />
+            <br />
+            {/* <Countdown date={new Date(1642265100000)} renderer={renderer}>
             <Completionist />
           </Countdown> */}
-        </div>
-      </main>
-    </div>
-  )
-}
+          </div>
+        </main>
+      </div>
+    )
+  }
