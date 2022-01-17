@@ -31,7 +31,7 @@ export default function Home() {
   async function fetchMyAPI() {
     const contract = new web3.eth.Contract(
       CC_ABI,
-      '0xA7f5BEd28c596afEc2980C29874963A974461Cf1',
+      '0xc3c95ccbed978fd2915ffa1883f5ede2590512e7',
     )
     const amount = await contract.methods.totalSupply().call()
     setMinted(amount)
@@ -44,7 +44,7 @@ export default function Home() {
     var gasPriceResult = await gasstationInfo('average')
     const contracts = new web3.eth.Contract(
       CC_ABI,
-      '0xA7f5BEd28c596afEc2980C29874963A974461Cf1',
+      '0xc3c95ccbed978fd2915ffa1883f5ede2590512e7',
     )
     fetchMyAPI()
     var estGas = 0
@@ -54,24 +54,24 @@ export default function Home() {
     setMinted(amounts)
     if (minted < 666) {
       const gasAmount = await contracts.methods
-        .freeMint()
+        .freeMint(amount)
         .estimateGas({ from: account })
         .then(function (result) {
           estGas = result
         })
 
-      const mintres = await contracts.methods.freeMint().send({
+      const mintres = await contracts.methods.freeMint(amount).send({
         from: account,
       })
     } else {
       const gasAmount = await contracts.methods
-        .minttest(amount)
+        .mintlarvaz(amount)
         .estimateGas({ from: account, value: amount * Price })
         .then(function (result) {
           estGas = result
         })
 
-      const mintres = await contracts.methods.minttest(amount).send({
+      const mintres = await contracts.methods.mintlarvaz(amount).send({
         from: account,
         value: amount * Price,
       })
@@ -87,7 +87,21 @@ export default function Home() {
   }
   const handleClickP = () => {
     var a = amount + 1
-    setAmount(a)
+    if(minted<666)
+    {
+      if(a<=2)
+      {
+        setAmount(a)
+      }
+    }
+    else
+    {
+      if(a<=15)
+      {
+        setAmount(a)
+      }
+    }
+
   }
   const handleClickM = () => {
     var a = amount - 1
@@ -111,23 +125,19 @@ export default function Home() {
           <br />
           <div className={styles.grid}>
             <div className={styles.tcard}>
-              {minted < 666 ? (
-                <div></div>
-              ) : (
+              
                 <Button className={styles.valbutton} onClick={handleClickM}>
                   -
                 </Button>
-              )}
+            
             </div>
             <div className={styles.tcard}>{amount}</div>
             <div className={styles.tcard}>
-              {minted < 666 ? (
-                <div></div>
-              ) : (
+             
                 <Button className={styles.valbutton} onClick={handleClickP}>
                   +
                 </Button>
-              )}
+            
             </div>
           </div>
         </span>
@@ -242,9 +252,9 @@ export default function Home() {
         <div className={styles.grid}>
           <br />
           <br />
-          {/* <Countdown date={new Date(1642265100000)} renderer={renderer}>
+          <Countdown date={new Date(1642423200000)} renderer={renderer}>
             <Completionist />
-          </Countdown> */}
+          </Countdown>
         </div>
       </main>
     </div>
