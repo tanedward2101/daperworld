@@ -174,7 +174,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Dead Larvaz</title>
-        <meta name="description" content="Gentle " />
+        <meta name="description" content="Free mint for the first 666 token. 6,666 undead larva NFTs on the Ethereum blockchain " />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
