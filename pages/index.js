@@ -170,7 +170,7 @@ export default function Home() {
 
   const fadenew = () => {
     setFaded(0)
-    setLocation(400)
+    setLocation(200)
     setTimeout(function () {
       setChater()
       fadeold()
@@ -374,7 +374,7 @@ export default function Home() {
             </div>
             <div className={styles.videoimg}>
               <motion.div
-                initial={{ opacity: 0, x: 400 }}
+                initial={{ opacity: 0, x: 200 }}
                 animate={{ opacity: faded, x: location }}
                 onClick={() => {
                   fadenew()
@@ -384,6 +384,7 @@ export default function Home() {
                   duration: 1,
                   delay: 1,
                 }}
+                exit={{ opacity: 0 }}
               >
                 <Image
                   src={monkeyimg}
