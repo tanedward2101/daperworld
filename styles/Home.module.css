@@ -1,17 +1,16 @@
 .container {
-  padding: 0 2rem;
   background-color: #050d18;
   width: 100%;
 }
-.bamat{
-  font-family: 'Bamat';
+.Wanters {
+  font-family: 'Wanters';
 }
-.free{
+.free {
   background-color: #10b981;
-  border-radius:10px;
-  width:6rem;
-  padding:0.3rem;
-  font-family: 'Bamat';
+  border-radius: 10px;
+  width: 6rem;
+  padding: 0.3rem;
+  font-family: 'Wanters';
 }
 .main {
   min-height: 100vh;
@@ -20,17 +19,18 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100vh;
 }
 .headtext {
   color: #10b981;
-  font-family: 'Bamat';
+  font-family: 'Wanters';
 }
 .ptext {
   color: #ffffff;
-  font-family: 'Bamat';
+  font-family: 'Wanters';
   font-size: 1rem;
 }
-.valbutton{
+.valbutton {
   border-radius: 8px;
   border: none;
   color: #10b981;
@@ -40,9 +40,9 @@
   display: inline-block;
 
   margin: 4px 2px;
-  background-color: #050d18 ;
+  background-color: #050d18;
   font-size: 2rem;
-  font-family: 'Bamat';
+  font-family: 'Wanters';
 }
 .footer {
   display: flex;
@@ -98,11 +98,11 @@
 }
 
 .grid {
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  width: 100%;
+  height: 100vh;
 }
 .gridl {
   padding-top: 4em;
@@ -111,6 +111,42 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: 100%;
+}
+.videotitle {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  z-index: 20;
+
+  width: 30%;
+}
+.videoparent {
+  position: relative;
+  height: 100%;
+}
+.videoimg {
+  position: absolute;
+  right: 10%;
+  z-index: 20;
+  bottom: 2%;
+  width: 30%;
+}
+.videochat {
+  position: absolute;
+  right: 32%;
+  z-index: 20;
+  bottom: 20%;
+  width: 30%;
+}
+
+.chat {
+  position: absolute;
+  left: 20%;
+  z-index: 21;
+  top: 28%;
+  font-family: Wanters;
+  font-size: 0.8em;
+  width: 60%;
 }
 
 .card {
@@ -133,7 +169,7 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
 }
-.card2{
+.card2 {
   margin: 0.5rem;
   padding: 1.5rem;
   text-align: left;
@@ -158,22 +194,22 @@
   text-align: left;
   color: #ffffff;
   text-decoration: none;
-  border: 1px solid  #10b981;
+  border: 1px solid #10b981;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   font-size: 1rem;
   width: 600px;
 }
-.titleone{
+.titleone {
   color: #10b981 !important;
   font-size: 2.25rem;
-  font-family: 'Bamat';
+  font-family: 'Wanters';
 }
 
-.countdown{
+.countdown {
   color: #ffffff !important;
   font-size: 1.55rem;
-  font-family: 'Bamat';
+  font-family: 'Wanters';
 }
 .texter {
   margin: 1rem;
@@ -216,6 +252,24 @@
 }
 
 @media (max-width: 600px) {
+  .videotitle {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    z-index: 20;
+    width: 30%;
+  }
+  .videoparent {
+    position: relative;
+    height: 100%;
+  }
+  .videoimg {
+    position: absolute;
+    right: 20%;
+    z-index: 20;
+    bottom: 2%;
+    width: 30%;
+  }
   .grid {
     width: 100%;
     flex-direction: column;
@@ -226,7 +280,7 @@
     text-align: left;
     color: #ffffff;
     text-decoration: none;
-    border: 1px solid  #10b981;
+    border: 1px solid #10b981;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
     font-size: 1rem;

@@ -23,16 +23,7 @@ export default function Header() {
             duration: 2,
           }}
         >
-          <div className={styles.headlogo}>
-            <a href="https://deadlarvaz.com">
-              <Image
-                src="/logo.svg"
-                alt="Vercel Logo"
-                width={130}
-                height={130}
-              />
-            </a>
-          </div>
+          <div className={styles.headlogo}>{''}</div>
           <ul
             className={
               isOpen === false
@@ -48,11 +39,37 @@ export default function Header() {
                     : styles.navlink + ' ' + styles.active
                 }
                 onClick={openMenu}
-                href="https://deadlarvaz.com" >
-               Back
+                href="https://deadlarvaz.com"
+              >
+                Home
               </a>
             </li>
-          
+            <li className={styles.navitem}>
+              <a
+                className={
+                  isOpen === false
+                    ? styles.navlink
+                    : styles.navlink + ' ' + styles.active
+                }
+                onClick={openMenu}
+                href="https://deadlarvaz.com"
+              >
+                Daper
+              </a>
+            </li>
+            <li className={styles.navitem}>
+              <a
+                className={
+                  isOpen === false
+                    ? styles.navlink
+                    : styles.navlink + ' ' + styles.active
+                }
+                onClick={openMenu}
+                href="https://deadlarvaz.com"
+              >
+                Team
+              </a>
+            </li>
           </ul>
 
           <div className={styles.iconic}>

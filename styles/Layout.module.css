@@ -7,10 +7,12 @@
   font-family: NewYork;
   src: url(../assets/font/NewYork.otf);
 }
+
 @font-face {
-  font-family: Bamat;
-  src: url(../assets/font/Bamat.ttf);
+  font-family:Wanters;
+  src: url(../assets/font/Wanters.ttf);
 }
+
 .headlogo {
 
   
@@ -18,24 +20,25 @@
 
 
 .header {
-  background-color: #050d18;
-  position: relative;
+  position: absolute;
+  width: 100%;
   z-index: 5;
 }
 .cntButton {
   border-radius: 8px;
   border: none;
-  color: white;
+  color: black;
   padding: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size:1rem;
-  margin: 4px 2px;
-  background-color: #10b981;
+  font-size:1.2rem;
+  margin: 2px 1px;
+  background-color: #ffffff;
+  font-family: 'Wanters';
 }
 .navbar {
-  background-color: #050d18;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +67,7 @@
 }
 .modaltext{
   color:#ffffff;
-  font-family: 'Bamat';
+  font-family: 'Wanters';
 }
 .modalclose{
   position: absolute;
@@ -85,7 +88,7 @@
 }
 .modalhead{
   color:#ffffff;
-  font-family: 'Bamat';
+  font-family: 'Wanters';
   padding-top: 2rem;
 }
 .iconchild {
@@ -122,11 +125,11 @@
   font-weight: 400;
   color: #ffffff;
   /* text-transform: uppercase; */
-  font-family: 'Bamat';
+  font-family: 'Wanters';
 }
 
 .navlink:hover {
-  color: #10b981;
+  color: #575757;
 }
 
 .navlogo {
@@ -150,7 +153,7 @@
   }
   .modaltext{
     color:#ffffff;
-    font-family: 'Bamat';
+    font-family: 'Wanters';
     word-wrap: break-word;
   }
   .navmenu.active {
