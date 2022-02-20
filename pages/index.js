@@ -321,7 +321,7 @@ export default function Home() {
               </a>
             </div>
             <div className={styles2.iconchild}>
-              <a href="https://twitter.com/DeadLarvaz" target="_blank">
+              <a href="https://twitter.com/DeadLarvaz">
                 <Image
                   src="/twitter.svg"
                   alt="Vercel Logo"
