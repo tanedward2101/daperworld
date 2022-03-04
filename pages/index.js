@@ -44,7 +44,7 @@ export default function Home() {
   }, account)
   const submitPass = (event) => {
     event.preventDefault()
-    console.log(event.target.name.value)
+   
     if (
       md5(event.target.name.value.toLowerCase()) ==
       '7cd8e243c0c56beb8231dec9f8231952'
