@@ -120,33 +120,62 @@
 
   width: 30%;
 }
+.inputtext {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: rgb(99, 99, 99)
+}
+.iconmid{
+  align-items: center;
+  justify-content: center;
+}
 .videoparent {
   position: relative;
   height: 100%;
 }
 .videoimg {
   position: absolute;
-  right: 14%;
+  right: 5%;
   z-index: 20;
   bottom: 2%;
   width: 30%;
 }
+.buttontext{
+  background-color: #747474;
+  color: #ffffff;
+  border: none;
+  font-family: 'JMH';
+  font-size: 1.3em;
+  padding: 15px;
+  margin: 10px;
+}
+.buttonSubmit{
+  background-color: #747474;
+  color: #ffffff;
+  border: none;
+  font-family: 'JMH';
+  font-size: 1.1em;
+  padding: 12px;
+  margin: 10px;
+}
 .videochat {
   position: absolute;
-  right: 36%;
-  z-index: 20;
-  bottom: 20%;
-  width: 30%;
+  right: 30%;
+  z-index: 1;
+  bottom: 25%;
+  width: 45%;
+  height: 50%;
+  background-color: #ffffff;
 }
 
 .chat {
-  position: absolute;
-  left: 20%;
+  position: relative;
+  padding-left: 20%;
+  padding-right: 20%;
   z-index: 21;
   top: 28%;
-  font-family: Wanters;
-  font-size: 0.8em;
-  width: 60%;
+  font-family: JMH;
+  font-size: 1em;
 }
 
 .card {

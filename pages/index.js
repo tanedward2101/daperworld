@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import styles2 from '../styles/Layout.module.css'
 import { motion } from 'framer-motion'
+import md5 from 'md5-hash'
 import React, { useState, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import useEagerConnect from '../hooks/useEagerConnect'
@@ -21,14 +22,16 @@ let Web3 = require('web3')
 export default function Home() {
   useEagerConnect()
   const [isOpen, setIsOpen] = useState(false)
-
+  const iHead = 'Welcome to DAPER House gents,'
   const iChat =
-    ' This Subtle Art NFT drop is the first book of many that you’ll be able to co-own, share and engage with a community around your favorite titles and authors. Build your Subtle Art collection to  own more of the overall title, expand into other titles and  enjoy the benefits of being on the ground floor of the first #bookNFT library!'
+    'You are looking mighty fine and dandy! My name is Reginald, at your service <br/> <br/>What can I help you?<br/>'
   const openMenu = () => setIsOpen(!isOpen)
   const setImg = () => setLink('/chat1.png')
   const [minted, setMinted] = useState(0)
+  const [divs, setDivState] = useState(0)
   const [amount, setAmount] = useState(1)
   const [textChat, setChat] = useState(iChat)
+  const [textHeader, setHeader] = useState(iHead)
   const [number, setNumber] = useState(0)
   const [imglink, setLink] = useState('/chat1.png')
   const [faded, setFaded] = useState(1)
@@ -39,7 +42,17 @@ export default function Home() {
   useEffect(() => {
     fetchMyAPI()
   }, account)
-
+  const submitPass = (event) => {
+    event.preventDefault()
+    console.log(event.target.name.value)
+    if (
+      md5(event.target.name.value.toLowerCase()) ==
+      '7cd8e243c0c56beb8231dec9f8231952'
+    ) {
+      console.log('TRUE')
+      setDivState(3)
+    }
+  }
   async function fetchMyAPI() {
     const contract = new web3.eth.Contract(
       CC_ABI,
@@ -48,32 +61,34 @@ export default function Home() {
     const amount = await contract.methods.totalSupply().call()
     setMinted(amount)
   }
-
-  function setChater() {
-    console.log(number)
-    if (number == 0) {
-      setChat(
-        'alami tanpa bahan kimia untuk mengatasi gangguan nyamuk membandel tanpa mengandung parafin. Aroma Citronela / Sereh alami yang juga menyegarkan dalam kemasan praktis mudah dibawa.',
-      )
-      setNumber(1)
-      setMonkey('/2.png')
-    }
-
-    if (number == 1) {
-      setChat(
-        'Cari Semua yang Kamu Butuhkan di Tokopedia. Bebas Ongkir Hingga 40Rb. Belanja Sekarang! Selalu Ada, Selalu Bisa. Bebas Ongkir. Bisa Bayar di Minimarket.',
-      )
-      setNumber(2)
-      setMonkey('/3.png')
-    }
-    if (number == 2) {
-      setChat(
-        'Berita Tokopedia - Kemendag meminta seluruh pemain e-commerce mulai dari Shopee hingga Tokopedia untuk men-take down para seller yang jual minyak goreng di ...',
-      )
-      setNumber(0)
-      setMonkey('/4.png')
-    }
+  function showAlert() {
+    alert('HI')
   }
+  // function setChater() {
+  //   console.log(number)
+  //   if (number == 0) {
+  //     setChat(
+  //       'alami tanpa bahan kimia untuk mengatasi gangguan nyamuk membandel tanpa mengandung parafin. Aroma Citronela / Sereh alami yang juga menyegarkan dalam kemasan praktis mudah dibawa.',
+  //     )
+  //     setNumber(1)
+  //     setMonkey('/2.png')
+  //   }
+
+  //   if (number == 1) {
+  //     setChat(
+  //       'Cari Semua yang Kamu Butuhkan di Tokopedia. Bebas Ongkir Hingga 40Rb. Belanja Sekarang! Selalu Ada, Selalu Bisa. Bebas Ongkir. Bisa Bayar di Minimarket.',
+  //     )
+  //     setNumber(2)
+  //     setMonkey('/3.png')
+  //   }
+  //   if (number == 2) {
+  //     setChat(
+  //       'Berita Tokopedia - Kemendag meminta seluruh pemain e-commerce mulai dari Shopee hingga Tokopedia untuk men-take down para seller yang jual minyak goreng di ...',
+  //     )
+  //     setNumber(0)
+  //     setMonkey('/4.png')
+  //   }
+  // }
 
   function makeid(length) {
     var result = ''
@@ -172,7 +187,7 @@ export default function Home() {
     setFaded(0)
     setLocation(200)
     setTimeout(function () {
-      setChater()
+      //setChater()
       fadeold()
     }, 2000)
   }
@@ -180,6 +195,15 @@ export default function Home() {
   const fadeold = () => {
     setFaded(1)
     setLocation(0)
+  }
+
+  const fadenewText = (x) => {
+    setFaded(0)
+    setLocation(200)
+    setTimeout(function () {
+      setDivState(x)
+      fadeold()
+    }, 2000)
   }
 
   const Completionist = () => (
@@ -310,7 +334,7 @@ export default function Home() {
             <div className={styles2.iconchild}>
               <ConnectBtn></ConnectBtn>
             </div>
-            <div className={styles2.iconchild}>
+            {/* <div className={styles2.iconchild}>
               <a href="https://discord.gg/p7ZAUWy9NP">
                 <Image
                   src="/discord.svg"
@@ -319,9 +343,9 @@ export default function Home() {
                   height={30}
                 />
               </a>
-            </div>
+            </div> */}
             <div className={styles2.iconchild}>
-              <a href="https://twitter.com/DeadLarvaz">
+              <a href="https://twitter.com/DaperApe">
                 <Image
                   src="/twitter.svg"
                   alt="Vercel Logo"
@@ -389,44 +413,161 @@ export default function Home() {
                 <Image
                   src={monkeyimg}
                   alt="Vercel Logo"
-                  width={350}
-                  height={350}
+                  width={650}
+                  height={650}
                   onClick={setImg}
                 />
               </motion.div>
             </div>
             <div className={styles.videochat}>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: faded }}
-                onClick={() => {
-                  fadenew()
-                }}
-                transition={{
-                  type: 'tween',
-                  duration: 1,
-                  delay: 1,
-                }}
-              >
-                <Image
-                  src={imglink}
-                  alt="Vercel Logo"
-                  width={880}
-                  height={700}
-                />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: faded }}
-                transition={{
-                  type: 'tween',
-                  duration: 1,
-                  delay: 1,
-                }}
-                className={styles.chat}
-              >
-                {textChat}
-              </motion.div>
+              {divs == 0 ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: faded }}
+                  transition={{
+                    type: 'tween',
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  exit={{ opacity: 0 }}
+                  className={styles.chat}
+                >
+                  <b>{textHeader}</b> <br></br>
+                  <br />
+                  <div dangerouslySetInnerHTML={{ __html: textChat }}></div>
+                  <div>
+                    <button
+                      className={styles.buttontext}
+                      onClick={() => {
+                        fadenewText(1)
+                      }}
+                    >
+                      {' '}
+                      About{' '}
+                    </button>
+                    <button
+                      className={styles.buttontext}
+                      onClick={() => {
+                        fadenewText(2)
+                      }}
+                    >
+                      {' '}
+                      Join Club
+                    </button>
+                  </div>
+                </motion.div>
+              ) : divs == 1 ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: faded }}
+                  transition={{
+                    type: 'tween',
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  exit={{ opacity: 0 }}
+                  className={styles.chat}
+                >
+                  <b>About </b> <br></br>
+                  <br />
+                  <div dangerouslySetInnerHTML={{ __html: textChat }}></div>
+                  <div>
+                    <button
+                      className={styles.buttontext}
+                      onClick={() => {
+                        fadenewText(0)
+                      }}
+                    >
+                      {' '}
+                      Back{' '}
+                    </button>
+                    <button
+                      className={styles.buttontext}
+                      onClick={() => {
+                        fadenewText(2)
+                      }}
+                    >
+                      {' '}
+                      Join Club
+                    </button>
+                  </div>
+                </motion.div>
+              ) : divs == 2 ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: faded }}
+                  transition={{
+                    type: 'tween',
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  className={styles.chat}
+                  exit={{ opacity: 0 }}
+                >
+                  <b>Please Enter Password</b> <br></br>
+                  <br />
+                  <form onSubmit={submitPass}>
+                    <input
+                      id="name"
+                      type="text"
+                      autoComplete="name"
+                      required
+                      className={styles.inputtext}
+                    />
+                    <button type="submit" className={styles.buttonSubmit}>
+                      Submit
+                    </button>
+                  </form>
+                  <div>
+                    <button
+                      className={styles.buttontext}
+                      onClick={() => {
+                        fadenewText(0)
+                      }}
+                    >
+                      Home
+                    </button>
+                    <button
+                      className={styles.buttontext}
+                      onClick={() => {
+                        fadenewText(1)
+                      }}
+                    >
+                      {' '}
+                      About
+                    </button>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: faded }}
+                  transition={{
+                    type: 'tween',
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  className={styles.chat}
+                  exit={{ opacity: 0 }}
+                >
+                  {' '}
+                  <center>
+                    <b>Welcome to Our House. Make yourself at home.</b>{' '}
+                    <br></br>
+                    <br />
+                    <div className={styles.iconmid}>
+                      <a href="https://discord.gg/p7ZAUWy9NP">
+                        <Image
+                          src="/discord.svg"
+                          alt="Vercel Logo"
+                          width={90}
+                          height={90}
+                        />
+                      </a>
+                    </div>
+                  </center>
+                </motion.div>
+              )}
             </div>
           </div>
         </div>

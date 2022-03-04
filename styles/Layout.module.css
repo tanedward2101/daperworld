@@ -2,7 +2,10 @@
   font-family: Arsenica;
   src: url(../assets/font/Arsenica.ttf);
 }
-
+@font-face {
+  font-family: JMH;
+  src: url(../assets/font/JMH.ttf);
+}
 @font-face {
   font-family: NewYork;
   src: url(../assets/font/NewYork.otf);
