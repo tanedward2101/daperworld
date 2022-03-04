@@ -52,6 +52,8 @@ export default function Home() {
       console.log('TRUE')
       setDivState(3)
     }
+    else
+    { setDivState(4)}
   }
   async function fetchMyAPI() {
     const contract = new web3.eth.Contract(
@@ -538,7 +540,7 @@ export default function Home() {
                     </button>
                   </div>
                 </motion.div>
-              ) : (
+              ) : divs == 3 ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: faded }}
@@ -565,6 +567,33 @@ export default function Home() {
                         />
                       </a>
                     </div>
+                  </center>
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: faded }}
+                  transition={{
+                    type: 'tween',
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  className={styles.chat}
+                  exit={{ opacity: 0 }}
+                >
+                  {' '}
+                  <center>
+                    <b>Wrong Password Buddy I'm sorry</b> <br></br>
+                    <br />
+                    <button
+                      className={styles.buttontext}
+                      onClick={() => {
+                        fadenewText(2)
+                      }}
+                    >
+                      {' '}
+                      Back{' '}
+                    </button>
                   </center>
                 </motion.div>
               )}
