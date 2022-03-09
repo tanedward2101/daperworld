@@ -558,7 +558,7 @@ export default function Home() {
                     <br></br>
                     <br />
                     <div className={styles.iconmid}>
-                      <a href="https://discord.gg/p7ZAUWy9NP">
+                      <a href="https://discord.gg/MSjW6nCY83">
                         <Image
                           src="/discord.svg"
                           alt="Vercel Logo"
